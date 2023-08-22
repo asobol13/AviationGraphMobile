@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "AviationGraphMobile",
+    "slug": "AviationGraphMobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "AviationGraphMobile"
+}
