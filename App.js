@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   rightText: {
-    flex: 1,
+    flex: -1,
     alignItems: 'flex-end',
   },
   line: {
