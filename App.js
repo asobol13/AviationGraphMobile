@@ -8,11 +8,11 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.topContainer}>
         <View style={styles.leftText}>
-          <Text>PA-44-180, SEMINOLE</Text>
+          <Text><h3>PA-44-180, SEMINOLE</h3></Text>
         </View>
         <View style={styles.rightText}>
-          <Text>SECTION 5</Text>
-          <Text>PERFORMANCE</Text>
+          <Text><h3>SECTION 5</h3></Text>
+          <Text><h3>PERFORMANCE</h3></Text>
         </View>
       </View>
       <View style={styles.line}></View> 
@@ -43,14 +43,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   leftText: {
-    flex: 1,
+    flex: -1,
     alignItems: 'flex-start',
-    marginLeft: 10,
   },
   rightText: {
     flex: 1,
     alignItems: 'flex-end',
-    marginRight: 10,
   },
   line: {
     borderBottomWidth: 25,
