@@ -14,7 +14,9 @@ export default function App() {
       </View>
     </View>
     <Text style={styles.title}>TAKEOFF DISTANCE OVER 50 FT OBSTACLE - SHORT FIELD EFFORT</Text>
-    <ChartComponent />
+    <View style={styles.graphContainer}>
+      <ChartComponent />
+    </View>
     <StatusBar style="auto" />
   </View>
 );
@@ -53,6 +55,9 @@ title: {
   fontSize: 24,
   fontWeight: 'bold',
   marginTop: 20,
+},
+graphContainer: {
+  paddingTop: 50,
 },
 });
 
