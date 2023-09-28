@@ -45,12 +45,19 @@ const ChartComponent = () => {
     ctx.fillRect(0, 0, chartWidth, chartHeight);
 
     // Define the number of horizontal and vertical grid lines
-    const numVerticalLines = 10;
-    const numHorizontalLines = 15;
+    // const numVerticalLines = 10;
+    // const numHorizontalLines = 15;
 
     // Calculate the spacing between lines
-    const verticalSpacing = canvas.width / numVerticalLines;
-    const horizontalSpacing = canvas.height / numHorizontalLines;
+    // const verticalSpacing = canvas.width / numVerticalLines;
+    // const horizontalSpacing = canvas.height / numHorizontalLines;
+
+    // Function to check if a line should be bold
+    const isBoldLine = (lineIndex) => {
+      // Add line indices that you want to make bold to this array
+      const boldLineIndices = [10, 54, 90];
+      return boldLineIndices.includes(lineIndex);
+    };
 
     // Draw vertical grid lines
     ctx.strokeStyle = 'lightgray';
@@ -58,9 +65,17 @@ const ChartComponent = () => {
     
     for (let i = 1; i <= dataPoints; i++) {
       const x = i * barSpacing;
+      // Make a specific line bold
+      if (isBoldLine(i)) {
+        ctx.lineWidth = 1; // Set the line width to make it bold
+        ctx.strokeStyle = 'black'; // Set the line color
+      } else {
+        ctx.lineWidth = 1; // Reset line width to normal
+        ctx.strokeStyle = 'lightgray'; // Reset line color to normal
+      }
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, chartHeight);
+      ctx.lineTo(x, canvas.height);
       ctx.stroke();
     }
 
