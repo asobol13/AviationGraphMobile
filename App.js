@@ -37,7 +37,7 @@ topRow: {
 },
 leftText: {
   fontSize: 16,
-  fontWeight: 'bold',
+  // fontWeight: 'bold',
 },
 rightContainer: {
   flexDirection: 'column',
@@ -45,14 +45,14 @@ rightContainer: {
 },
 rightText: {
   fontSize: 16,
-  fontWeight: 'bold',
+  // fontWeight: 'bold',
 },
 rightBottomText: {
   fontSize: 16,
-  fontWeight: 'bold',
+  // fontWeight: 'bold',
 },
 title: {
-  fontSize: 24,
+  fontSize: 16,
   fontWeight: 'bold',
   marginTop: 10,
 },
