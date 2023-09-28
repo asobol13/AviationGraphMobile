@@ -6,7 +6,7 @@ const ChartComponent = () => {
 
   useEffect(() => {
     // Create a canvas using node-canvas
-    const canvas = createCanvas(800, 400); // Specify width and height
+    const canvas = createCanvas(1200, 900); // Specify width and height
     const ctx = canvas.getContext('2d');
 
     // Define your data
@@ -43,6 +43,14 @@ const ChartComponent = () => {
     // Set background color
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, chartWidth, chartHeight);
+
+    // Define the number of horizontal and vertical grid lines
+    const numVerticalLines = 10;
+    const numHorizontalLines = 15;
+
+    // Calculate the spacing between lines
+    const verticalSpacing = canvas.width / numVerticalLines;
+    const horizontalSpacing = canvas.height / numHorizontalLines;
 
     // Draw vertical grid lines
     ctx.strokeStyle = 'lightgray';
@@ -107,7 +115,7 @@ const ChartComponent = () => {
   return (
     <div id="chart-container">
       {/* Display the chart as an image */}
-      <img ref={chartRef} alt="Line Chart" height="400" width="800"/>
+      <img ref={chartRef} alt="Line Chart" height="600" width="1200"/>
     </div>
   );
 };
