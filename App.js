@@ -27,7 +27,7 @@ container: {
   flex: 1,
   alignItems: 'center',
   justifyContent: 'flex-start',
-  paddingTop: 50,
+  paddingTop: 20,
 },
 topRow: {
   flexDirection: 'row',
@@ -54,10 +54,10 @@ rightBottomText: {
 title: {
   fontSize: 24,
   fontWeight: 'bold',
-  marginTop: 20,
+  marginTop: 10,
 },
 graphContainer: {
-  paddingTop: 50,
+  paddingTop: 30,
 },
 });
 

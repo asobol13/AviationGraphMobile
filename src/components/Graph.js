@@ -115,7 +115,7 @@ const ChartComponent = () => {
   return (
     <div id="chart-container">
       {/* Display the chart as an image */}
-      <img ref={chartRef} alt="Line Chart" height="600" width="1200"/>
+      <img ref={chartRef} alt="Line Chart" height="100%" width="100%"/>
     </div>
   );
 };
