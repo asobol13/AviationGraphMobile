@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { createCanvas } from 'canvas'; // Import canvas library
 
+// TODO: Need to fit the rest of the graph, it gets cut off
+
 const ChartComponent = () => {
   const chartRef = useRef(null);
 
