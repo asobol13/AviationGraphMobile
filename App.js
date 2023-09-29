@@ -13,6 +13,7 @@ export default function App() {
         <Text style={styles.rightBottomText}>PERFORMANCE</Text>
       </View>
     </View>
+    {/* <View style={styles.line} /> */}
     <Text style={styles.title}>TAKEOFF DISTANCE OVER 50 FT OBSTACLE - SHORT FIELD EFFORT</Text>
     <View style={styles.graphContainer}>
       <ChartComponent />
@@ -51,6 +52,12 @@ rightBottomText: {
   fontSize: 16,
   // fontWeight: 'bold',
 },
+// line: {
+//   flex: 1,
+//   height: 1,
+//   backgroundColor: 'black',
+//   marginHorizontal: 10,
+// },
 title: {
   fontSize: 16,
   fontWeight: 'bold',
