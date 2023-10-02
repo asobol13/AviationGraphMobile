@@ -15,6 +15,21 @@ export default function App() {
     </View>
     <View style={styles.divider} />
     <Text style={styles.title}>TAKEOFF DISTANCE OVER 50 FT OBSTACLE - SHORT FIELD EFFORT</Text>
+    <View style={styles.conditionsContainer}>
+    <View style={styles.conditionsLC}> {/*beginning of boxes */}
+      <View style={styles.conditionsLT}>
+        <Text>Associated Conditions</Text>
+      </View>
+    </View>
+    <View style={styles.conditionsMC}>
+      <Text>This is where the boxes will go</Text>
+    </View>
+    <View style={styles.conditionsRC}>
+    <View style={styles.conditionsRT}>
+        <Text>EXAMPLE:</Text>
+      </View>
+    </View>
+    </View>
     <View style={styles.graphContainer}>
       <ChartComponent />
     </View>
@@ -63,5 +78,32 @@ divider: {
   width: '100%',
   marginTop: 10,
   marginBottom: 10,
+},
+conditionsContainer: {
+  flexDirection: 'row',
+  marginHorizontal: 5,
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginTop: 20,
+  width: '100%',
+  paddingHorizontal: 20,
+},
+conditionsLC: {
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+},
+conditionsLT: {
+
+},
+conditionsMC: {
+  flexDirection: 'column',
+  alignItems: 'flex-middle',
+},
+conditionsRC: {
+  flexDirection: 'column',
+  alignItems: 'flex-end',
+},
+conditionsRT: {
+
 },
 });
