@@ -7,10 +7,9 @@ export default function App() {
   return (
     <View style={styles.container}>
     <View style={styles.topRow}>
-      <Text style={styles.leftText}>PA-44-180, SEMINOLE</Text>
+      <Text style={styles.topText}>PA-44-180, SEMINOLE</Text>
       <View style={styles.rightContainer}>
-        <Text style={styles.rightText}>SECTION 5</Text>
-        <Text style={styles.rightBottomText}>PERFORMANCE</Text>
+        <Text style={styles.topText}>SECTION 5{'\n'}PERFORMANCE</Text>
       </View>
     </View>
     <View style={styles.divider} />
@@ -18,15 +17,26 @@ export default function App() {
     <View style={styles.conditionsContainer}>
     <View style={styles.conditionsLC}> {/*beginning of boxes */}
       <View style={styles.conditionsLT}>
-        <Text>Associated Conditions</Text>
+        <Text style={styles.conditionsTxt}>
+          ASSOCIATED CONDITIONS:{'\n'}    Wing Flaps:  0{'\n'}    Cowl Flaps:  OPEN
+          {'\n'}    Power:          2700 RPM & FULL THROTTLE
+          {'\n'}                         BEFORE BRAKE RELEASE
+          {'\n'}    Runway:        PAVED, LEVEL & DRY
+        </Text>
       </View>
     </View>
     <View style={styles.conditionsMC}>
-      <Text>This is where the boxes will go</Text>
+      <Text style={styles.conditionsTxt}>This is where the boxes will go</Text>
     </View>
     <View style={styles.conditionsRC}>
     <View style={styles.conditionsRT}>
-        <Text>EXAMPLE:</Text>
+        <Text style={styles.conditionsTxt}>
+          EXAMPLE:{'\n'}    O.A.T.:                               8C
+          {'\n'}    Airport Pressure Altitude: 1250 FT
+          {'\n'}    Weight:                             3430 LBS
+          {'\n'}    Wind Component:            6 KT HEADWIND{'\n'}    Takeoff 
+          Distance{'\n'}      Over 50 FT Obstacle:      1520 FT
+        </Text>
       </View>
     </View>
     </View>
@@ -51,18 +61,12 @@ topRow: {
   width: '100%',
   paddingHorizontal: 20,
 },
-leftText: {
+topText: {
   fontSize: 16,
 },
 rightContainer: {
   flexDirection: 'column',
   alignItems: 'flex-end',
-},
-rightText: {
-  fontSize: 16,
-},
-rightBottomText: {
-  fontSize: 16,
 },
 title: {
   fontSize: 16,
@@ -105,5 +109,8 @@ conditionsRC: {
 },
 conditionsRT: {
 
+},
+conditionsTxt: {
+  fontSize: 12,
 },
 });
