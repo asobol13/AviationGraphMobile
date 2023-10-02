@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import ChartComponent from './src/components/Graph.js';
-import Divider from '@mui/material/Divider';
 
 export default function App() {
   return (
@@ -14,7 +13,7 @@ export default function App() {
         <Text style={styles.rightBottomText}>PERFORMANCE</Text>
       </View>
     </View>
-    <Divider variant="middle" />
+    <View style={styles.divider} />
     <Text style={styles.title}>TAKEOFF DISTANCE OVER 50 FT OBSTACLE - SHORT FIELD EFFORT</Text>
     <View style={styles.graphContainer}>
       <ChartComponent />
@@ -58,8 +57,11 @@ title: {
 graphContainer: {
   paddingTop: 30,
 },
+divider: {
+  borderBottomColor: 'black',
+  borderBottomWidth: 1,
+  width: '100%',
+  marginTop: 10,
+  marginBottom: 10,
+},
 });
-
-
-
-
