@@ -27,17 +27,14 @@ export default function App() {
       <View style={styles.conditionsMLB}>
         <View style={styles.section1}>
           <Text style={styles.sectionHeading}>WEIGHT{'\n'}POUNDS</Text>
-          <View style={styles.sectionWithBorder}></View>
           <Text style={styles.sectionTxt}>3800{'\n'}3400{'\n'}3000{'\n'}2600</Text>
         </View>
         <View style={styles.section2}>
           <Text style={styles.sectionHeading}>ROTATE{'\n'}SPEED KIAS</Text>
-          <View style={styles.sectionWithBorder}></View>
           <Text style={styles.sectionTxt}>70{'\n'}66{'\n'}62{'\n'}57</Text>
         </View>
         <View style={styles.section3}>
           <Text style={styles.sectionHeading}>OBSTACLE{'\n'}SPEED KIAS</Text>
-          <View style={styles.sectionWithBorder}></View>
           <Text style={styles.sectionTxt}>82{'\n'}77{'\n'}72{'\n'}67</Text>
         </View>
       </View>
@@ -110,11 +107,12 @@ conditionsContainer: {
   justifyContent: 'space-between',
   marginTop: 20,
   width: '100%',
-  paddingHorizontal: 20,
+  paddingHorizontal: 10,
 },
 conditionsLC: {
   flexDirection: 'column',
   alignItems: 'flex-start',
+  paddingRight: 15,
 },
 conditionsMC: {
   flexDirection: 'row',
@@ -147,17 +145,15 @@ section3: {
   justifyContent: 'center',
   alignItems: 'center',
   borderRightColor: 'black',
-  borderRightWidth: 1,
 },
 sectionHeading: {
   fontSize: 12,
   fontWeight: 'bold',
   textAlign: 'center',
-},
-sectionWithBorder: {
-  borderTopColor: 'black',
-  borderTopWidth: 1,
-  marginTop: 5,
+  borderBottomColor: 'black',
+  borderBottomWidth: 1,
+  paddingBottom: 5,
+  width: 100,
 },
 sectionTxt: {
   fontSize: 10,
@@ -191,6 +187,7 @@ cautionSubTxt: {
 conditionsRC: {
   flexDirection: 'column',
   alignItems: 'flex-end',
+  paddingLeft: 15,
 },
 conditionsTxt: {
   fontSize: 12,
