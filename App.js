@@ -86,7 +86,7 @@ rightContainer: {
   alignItems: 'flex-end',
 },
 title: {
-  fontSize: 16,
+  fontSize: 24,
   fontWeight: 'bold',
   marginTop: 10,
 },
