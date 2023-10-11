@@ -16,8 +16,13 @@ const ChartComponent = () => {
     const data2 = [/* ... */];
     const data3 = [/* ... */];
     // Define x-axis data and labels (assuming it's the same for all three graphs)
-    const xdata = [-40, -38, -36, -34, /* ... */];
-    const labels = ['0', '100', '200', '300', /* ... */];
+    const xdata = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000,
+      1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000,
+      2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000,
+      3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000,
+      4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000,
+      5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900, 6000];
+    const labels = ['0', '1000', '2000', '3000', '4000', '5000', '6000'];
 
     // Set chart properties
     const chartWidth = canvas.width / 3; // Divide canvas into three sections
@@ -34,7 +39,7 @@ const ChartComponent = () => {
     };
 
     // Loop through each section of the canvas for the three graphs
-    for (let graphIndex = 0; graphIndex < 3; graphIndex++) {
+    for (let graphIndex = 0; graphIndex < 4; graphIndex++) {
       // Calculate the starting and ending indices for the data
       const startIndex = graphIndex * dataPoints;
       const endIndex = (graphIndex + 1) * dataPoints;
@@ -43,21 +48,21 @@ const ChartComponent = () => {
       ctx.strokeStyle = 'lightgray';
       ctx.lineWidth = 1;
 
-      for (let i = startIndex + 1; i <= endIndex; i++) {
-        const x = (i - startIndex) * barSpacing + graphIndex * chartWidth;
-        // Make a specific line bold
-        if (isBoldLine(i)) {
-          ctx.lineWidth = 1; // Set the line width to make it bold
-          ctx.strokeStyle = 'black'; // Set the line color
-        } else {
-          ctx.lineWidth = 1; // Reset line width to normal
-          ctx.strokeStyle = 'lightgray'; // Reset line color to normal
-        }
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, chartHeight);
-        ctx.stroke();
-      }
+      // for (let i = startIndex + 1; i <= endIndex; i++) {
+      //   const x = (i - startIndex) * barSpacing + graphIndex * chartWidth;
+      //   // Make a specific line bold
+      //   if (isBoldLine(i)) {
+      //     ctx.lineWidth = 1; // Set the line width to make it bold
+      //     ctx.strokeStyle = 'black'; // Set the line color
+      //   } else {
+      //     ctx.lineWidth = 1; // Reset line width to normal
+      //     ctx.strokeStyle = 'lightgray'; // Reset line color to normal
+      //   }
+      //   ctx.beginPath();
+      //   ctx.moveTo(x, 0);
+      //   ctx.lineTo(x, chartHeight);
+      //   ctx.stroke();
+      // }
 
       // Draw grid lines (horizontal)
       ctx.strokeStyle = 'lightgray';
@@ -101,8 +106,12 @@ const ChartComponent = () => {
         ctx.fill();
 
         // Draw labels on the side of the chart
-        ctx.fillStyle = 'black';
-        ctx.fillText(labels[startIndex + index], (graphIndex + 1) * chartWidth + 20, y);
+        // ctx.fillStyle = 'black';
+        // for(let index = 0; index < labels.length; index += 10) {
+        //   ctx.fillText(labels[startIndex + index], (graphIndex + 1) * chartWidth + 10, y);
+        // }
+
+        ctx.fillText(labels[startIndex + index], (graphIndex + 1) * chartWidth + 10, y);
       });
     }
 
