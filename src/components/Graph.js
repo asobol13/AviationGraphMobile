@@ -38,8 +38,9 @@ const ChartComponent = () => {
     //   '3550', '3500', '3450', '3400', '3350', '3300', '3250', '3200', '3150', '3100', '3050', '3000', '2900', '2850', '2800', '2750',
     //   '2700', '2650', '2600', '2550', '2500', '2250', '2000', '1750', '1500', '1250', '1000', '750', '500', '250',
     //   '0', '0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36', '38', '40'];
-    const xlabels = ['-40', '-20', '0', '20', '40', '3500', '3000', '2500', '0', '10',
-    '20', '30'];
+    const xlabels1 = ['-40', '-20', '0', '20', '40'];
+    const xlabels2 = ['3500', '3000', '2500'];
+    const xlabels3 = ['0', '10', '20', '30'];
 
     // Set chart properties
     const chartWidth = canvas.width / 3; // Divide canvas into three sections
@@ -132,26 +133,46 @@ const ChartComponent = () => {
         // ctx.fillText(xlabels[startIndex + index], (graphIndex + 2.9) * chartWidth + 10, x);
 
         // Customize the position and styling of the labels
-ctx.font = '8px Arial';
-ctx.fillStyle = 'black';
+        ctx.font = '12px Arial';
+        ctx.fillStyle = 'black';
 
-// Add x-axis labels
-xlabels.forEach(function (label, index) {
-  var x = (index + 1) * (chartWidth / (xlabels.length + 1));
-  var y = chartHeight - 10;
-  ctx.fillText(label, x, y);
-});
+        // Add x-axis labels
+        xlabels1.forEach(function (label, index) {
+          var x = (index + 0) * (chartWidth / (xlabels1.length + 1));
+          var y = chartHeight - 10;
+          ctx.fillText(label, x, y);
+        });
 
-// Add y-axis labels
-ylabels.forEach(function (label, index) {
-  var x = 10;
-  var y = (index + 1) * (chartHeight / (ylabels.length + 1));
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.rotate(-Math.PI / 2); // Rotate text vertically
-  ctx.fillText(label, 0, 0);
-  ctx.restore();
-});
+        xlabels2.forEach(function (label, index) {
+          var x = (index + 4.75) * (chartWidth / (xlabels2.length + 1));
+          var y = chartHeight - 20;
+          ctx.fillText(label, x, y);
+        });
+
+        xlabels3.forEach(function (label, index) {
+          var x = (index + 10) * (chartWidth / (xlabels3.length + 1));
+          var y = chartHeight - 30;
+          ctx.fillText(label, x, y);
+        });
+
+        // Customize x-axis labels for the current graph
+        // const xlabels =
+        //   graphIndex === 0 ? xlabels1 : graphIndex === 1 ? xlabels2 : xlabels3;
+        // const label = xlabels[index];
+        // const xLabelX = (index + 1) * (chartWidth / (xlabels.length + 1));
+        // const xLabelY = chartHeight - 10;
+        // ctx.fillText(label, xLabelX, xLabelY);
+
+        // Add y-axis labels
+        ylabels.forEach(function (label, index) {
+          var x = 10;
+          var y = (index + 1) * (chartHeight / (ylabels.length + 1));
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.rotate(-Math.PI / 2); // Rotate text vertically
+          ctx.fillText(label, 0, 0);
+          ctx.restore();
+        });
       });
     }
 
@@ -171,4 +192,3 @@ ylabels.forEach(function (label, index) {
 };
 
 export default ChartComponent;
-
