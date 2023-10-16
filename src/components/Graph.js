@@ -165,12 +165,14 @@ const ChartComponent = () => {
 
         // Add y-axis labels
         ylabels.forEach(function (label, index) {
-          var x = 10;
+          var x = chartWidth + 770;
           var y = (index + 2) * (chartHeight / (ylabels.length + 1));
-          ctx.save();
-          ctx.translate(x, y);
-          ctx.fillText(label, 0, 0);
-          ctx.restore();
+
+          ctx.fillText(label, x, y);
+          // ctx.save();
+          // ctx.translate(x, y);
+          // ctx.fillText(label, 0, 0);
+          // ctx.restore();
         });
       });
     }
