@@ -25,18 +25,21 @@ const ChartComponent = () => {
       3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000,
       4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000,
       5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900, 6000];
-    const ylabels = ['0', '100', '200', '300', '400', '500', '600', '700', '800', '900', '1000',
-      '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900', '2000',
-      '2100', '2200', '2300', '2400', '2500', '2600', '2700', '2800', '2900', '3000',
-      '3100', '3200', '3300', '3400', '3500', '3600', '3700', '3800', '3900', '4000',
-      '4100', '4200', '4300', '4400', '4500', '4600', '4700', '4800', '4900', '5000',
-      '5100', '5200', '5300', '5400', '5500', '5600', '5700', '5800', '5900', '6000'];
+    // const ylabels = ['0', '100', '200', '300', '400', '500', '600', '700', '800', '900', '1000',
+    //   '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900', '2000',
+    //   '2100', '2200', '2300', '2400', '2500', '2600', '2700', '2800', '2900', '3000',
+    //   '3100', '3200', '3300', '3400', '3500', '3600', '3700', '3800', '3900', '4000',
+    //   '4100', '4200', '4300', '4400', '4500', '4600', '4700', '4800', '4900', '5000',
+    //   '5100', '5200', '5300', '5400', '5500', '5600', '5700', '5800', '5900', '6000'];
+    const ylabels = ['0', '1000', '2000', '3000', '4000', '5000', '6000'];
     // const xlabels = ['-40', '-38', '-36', '-34', '-32', '-30', '-28', '-26', '-24', '-22', '-20',
     //   '-18', '-16', '-14', '-12', '-10', '-8', '-6', '-4', '-2', '0', '2', '4', '6', '8', '10', '12', '14', '16',
     //   '18', '20', '22', '24', '26', '28', '30', '32', '34', '36', '38', '40', '3750', '3700', '3650', '3600',
     //   '3550', '3500', '3450', '3400', '3350', '3300', '3250', '3200', '3150', '3100', '3050', '3000', '2900', '2850', '2800', '2750',
     //   '2700', '2650', '2600', '2550', '2500', '2250', '2000', '1750', '1500', '1250', '1000', '750', '500', '250',
-    //   '0', '0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36', '38', '40']
+    //   '0', '0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36', '38', '40'];
+    const xlabels = ['-40', '-20', '0', '20', '40', '3500', '3000', '2500', '0', '10',
+    '20', '30'];
 
     // Set chart properties
     const chartWidth = canvas.width / 3; // Divide canvas into three sections
@@ -46,11 +49,11 @@ const ChartComponent = () => {
     const barSpacing = chartWidth / (dataPoints + 1);
 
     // Function to check if a line should be bold
-    const isBoldLine = (lineIndex) => {
-      // Add line indices that you want to make bold to this array
-      const boldLineIndices = [10, 54, 90];
-      return boldLineIndices.includes(lineIndex);
-    };
+    // const isBoldLine = (lineIndex) => {
+    //   // Add line indices that you want to make bold to this array
+    //   const boldLineIndices = [10, 54, 90];
+    //   return boldLineIndices.includes(lineIndex);
+    // };
 
     // Loop through each section of the canvas for the three graphs
     for (let graphIndex = 0; graphIndex < 4; graphIndex++) {
@@ -125,8 +128,30 @@ const ChartComponent = () => {
         //   ctx.fillText(labels[startIndex + index], (graphIndex + 1) * chartWidth + 10, y);
         // }
 
-        ctx.fillText(ylabels[startIndex + index], (graphIndex + 2.9) * chartWidth + 10, y);
+        // ctx.fillText(ylabels[startIndex + index], (graphIndex + 2.9) * chartWidth + 10, y);
         // ctx.fillText(xlabels[startIndex + index], (graphIndex + 2.9) * chartWidth + 10, x);
+
+        // Customize the position and styling of the labels
+ctx.font = '8px Arial';
+ctx.fillStyle = 'black';
+
+// Add x-axis labels
+xlabels.forEach(function (label, index) {
+  var x = (index + 1) * (chartWidth / (xlabels.length + 1));
+  var y = chartHeight - 10;
+  ctx.fillText(label, x, y);
+});
+
+// Add y-axis labels
+ylabels.forEach(function (label, index) {
+  var x = 10;
+  var y = (index + 1) * (chartHeight / (ylabels.length + 1));
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(-Math.PI / 2); // Rotate text vertically
+  ctx.fillText(label, 0, 0);
+  ctx.restore();
+});
       });
     }
 
