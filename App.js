@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import ChartComponent from './src/components/Graph.js';
+// import ChartComponent from './src/components/Graph.js';
+import PerformanceChart from './src/components/PerformanceChart.js';
 
 export default function App() {
   return (
@@ -58,7 +59,7 @@ export default function App() {
     </View>
     </View>
     <View style={styles.graphContainer}>
-      <ChartComponent />
+      <PerformanceChart />
     </View>
     <StatusBar style="auto" />
   </View>
