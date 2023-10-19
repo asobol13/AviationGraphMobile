@@ -1,22 +1,36 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
+import { Col, Row } from 'react-native-flexbox-grid';
 
 const PerformanceChart = () => {
+
+    const styles = StyleSheet.create({
+        chart: {
+            flex: 2,
+            alignSelf: 'center', // Center the chart horizontally
+        },
+        labelText: {
+            fontSize: 14,
+            fontWeight: 'bold',
+        },
+    });
+
     const data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
+        labels: ["-40", "-20", "0", "20", "40", "3500", "3000", "2500", "0", "10", "20", "30"],
         datasets: [
             {
-                data: [20, 45, 28, 80, 99, 43],
-                color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
-                strokeWidth: 2 // optional
+                data: [1000, 2000, 3000, 4000, 5000, 6000],
+                color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
+                strokeWidth: 3,
             }
         ],
-        // legend: ["Rainy Days"] // optional
     };
-    
+
+    const yLabels = ["1000", "2000", "3000", "4000", "5000", "6000"];
+
     return (
-        <View>
+        <View style={styles.chart}>
             <LineChart
                 data={data}
                 width={1300}
@@ -24,10 +38,20 @@ const PerformanceChart = () => {
                 chartConfig={{
                     backgroundGradientFrom: 'white',
                     backgroundGradientTo: 'white',
-                    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Axis and labels color
-                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // Label color
+                    decimalPlaces: 0,
+                    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                 }}
+                fromZero
+                segments={6}
+                yLabels={yLabels}
             />
+            <Text style={styles.labelText}>TAKEOFF DISTANCE OVER 50 FT. OBSTACLE - FEET</Text>
+            <View style={styles.row}>
+                <Text style={styles.labelText}>OUTSIDE AIR TEMPERATURE - °C</Text>
+                <Text style={styles.labelText}>WEIGHT - POUNDS</Text>
+                <Text style={styles.labelText}>WIND - KNOTS</Text>
+            </View>
         </View>
     );
 };
