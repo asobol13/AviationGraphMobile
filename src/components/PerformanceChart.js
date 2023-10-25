@@ -1,18 +1,46 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
-import { Col, Row } from 'react-native-flexbox-grid';
 
 const PerformanceChart = () => {
 
     const styles = StyleSheet.create({
         chart: {
             flex: 2,
-            alignSelf: 'center', // Center the chart horizontally
+            alignSelf: 'center',
         },
         labelText: {
             fontSize: 14,
             fontWeight: 'bold',
+            marginTop: 50,
+        },
+        labelTextR1: {
+            flex: 1,
+            fontSize: 14,
+            fontWeight: 'bold',
+            transform: [{ rotate: '270deg' }],
+            marginTop: 200,
+        },
+        grid: {
+            flex: 1,
+        },
+        row: {
+            flex: 1,
+            flexDirection: 'row',
+        },
+        cell: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        cell1: {
+            justifyContent: 'center',
+            alignSelf: 'center',
+        },
+        graphcell: {
+            marginLeft: 250,
+            marginRight: -100,
+            justifyContent: 'center',
         },
     });
 
@@ -30,27 +58,41 @@ const PerformanceChart = () => {
     const yLabels = ["1000", "2000", "3000", "4000", "5000", "6000"];
 
     return (
-        <View style={styles.chart}>
-            <LineChart
-                data={data}
-                width={1300}
-                height={600}
-                chartConfig={{
-                    backgroundGradientFrom: 'white',
-                    backgroundGradientTo: 'white',
-                    decimalPlaces: 0,
-                    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                }}
-                fromZero
-                segments={6}
-                yLabels={yLabels}
-            />
-            <Text style={styles.labelText}>TAKEOFF DISTANCE OVER 50 FT. OBSTACLE - FEET</Text>
+        <View style={styles.grid}>
             <View style={styles.row}>
-                <Text style={styles.labelText}>OUTSIDE AIR TEMPERATURE - °C</Text>
-                <Text style={styles.labelText}>WEIGHT - POUNDS</Text>
-                <Text style={styles.labelText}>WIND - KNOTS</Text>
+                <View style={styles.graphcell}>
+                    <View style={styles.chart}>
+                        <LineChart
+                            data={data}
+                            width={1300}
+                            height={600}
+                            chartConfig={{
+                                backgroundGradientFrom: 'white',
+                                backgroundGradientTo: 'white',
+                                decimalPlaces: 0,
+                                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                            }}
+                            fromZero
+                            segments={6}
+                            yLabels={yLabels}
+                        />
+                    </View>
+                </View>
+                <View style={styles.cell1}>
+                    <Text style={styles.labelTextR1} numberOfLines={1}>TAKEOFF DISTANCE OVER 50 FT. OBSTACLE - FEET</Text>
+                </View>
+            </View>
+            <View style={styles.row}>
+                <View style={styles.cell}>
+                    <Text style={styles.labelText}>OUTSIDE AIR TEMPERATURE - °C</Text>
+                </View>
+                <View style={styles.cell}>
+                    <Text style={styles.labelText}>WEIGHT - POUNDS</Text>
+                </View>
+                <View style={styles.cell}>
+                    <Text style={styles.labelText}>WIND - KNOTS</Text>
+                </View>
             </View>
         </View>
     );
