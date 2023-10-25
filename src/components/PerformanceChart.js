@@ -85,13 +85,13 @@ const PerformanceChart = () => {
             </View>
             <View style={styles.row}>
                 <View style={styles.cell}>
-                    <Text style={styles.labelText}>OUTSIDE AIR TEMPERATURE - °C</Text>
+                    <Text style={[styles.labelText, { marginLeft: 350 }]}>OUTSIDE AIR TEMPERATURE - °C</Text>
                 </View>
                 <View style={styles.cell}>
-                    <Text style={styles.labelText}>WEIGHT - POUNDS</Text>
+                    <Text style={[styles.labelText, { marginLeft: 100 }]}>WEIGHT - POUNDS</Text>
                 </View>
                 <View style={styles.cell}>
-                    <Text style={styles.labelText}>WIND - KNOTS</Text>
+                    <Text style={[styles.labelText, { marginRight: 350 }]}>WIND - KNOTS</Text>
                 </View>
             </View>
         </View>
