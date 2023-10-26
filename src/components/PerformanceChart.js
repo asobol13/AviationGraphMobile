@@ -55,7 +55,19 @@ const PerformanceChart = () => {
         ],
     };
 
-    const yLabels = ["1000", "2000", "3000", "4000", "5000", "6000"];
+    // const verticalLines = 110;
+    // const horizontalLines = 60;
+
+    const yLabels = ["0", "1000", "2000", "3000", "4000", "5000", "6000"];
+
+    // Calculate the number of intermediate labels
+    const numIntermediateLabels = 60 - yLabels.length;
+
+    // Create an array with blank intermediate labels
+    const intermediateLabels = Array(numIntermediateLabels).fill('');
+
+    // Combine actual labels and intermediate labels
+    const allYLabels = [...yLabels, ...intermediateLabels];
 
     return (
         <View style={styles.grid}>
@@ -77,10 +89,9 @@ const PerformanceChart = () => {
                                 },
                             }}
                             fromZero={true}
-                            gridMin={0}
-                            gridMax={110}
-                            segments={6}
-                            yLabels={yLabels}
+                            segments={60}
+                            yLabels={allYLabels}
+                            yLabelsOffset={-999}
                         />
                     </View>
                 </View>
