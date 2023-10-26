@@ -48,7 +48,7 @@ const PerformanceChart = () => {
         labels: ["-40", "-20", "0", "20", "40", "3500", "3000", "2500", "0", "10", "20", "30"],
         datasets: [
             {
-                data: [1000, 2000, 3000, 4000, 5000, 6000],
+                data: [0, 1000, 2000, 3000, 4000, 5000, 6000],
                 color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`,
                 strokeWidth: 3,
             }
@@ -72,8 +72,13 @@ const PerformanceChart = () => {
                                 decimalPlaces: 0,
                                 color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                                 labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                                propsForBackgroundLines: {
+                                    strokeDasharray: "",
+                                },
                             }}
-                            fromZero
+                            fromZero={true}
+                            gridMin={0}
+                            gridMax={110}
                             segments={6}
                             yLabels={yLabels}
                         />
