@@ -23,6 +23,8 @@ const PerformanceChart = () => {
         },
         grid: {
             flex: 1,
+            alignItems: 'center',
+            marginLeft: 200,
         },
         row: {
             flex: 1,
@@ -38,9 +40,19 @@ const PerformanceChart = () => {
             alignSelf: 'center',
         },
         graphcell: {
-            marginLeft: 250,
+            marginLeft: -100,
             marginRight: -100,
             justifyContent: 'center',
+        },
+        yAxisLabelsCell: {
+            marginRight: -10,
+        },
+        yAxisLabels: {
+            padding: 50,
+            justifyContent: 'center',
+            marginTop: -43.5,
+            marginRight: -150,
+            marginLeft: 50,
         },
     });
 
@@ -54,20 +66,6 @@ const PerformanceChart = () => {
             }
         ],
     };
-
-    // const verticalLines = 110;
-    // const horizontalLines = 60;
-
-    const yLabels = ["0", "1000", "2000", "3000", "4000", "5000", "6000"];
-
-    // Calculate the number of intermediate labels
-    const numIntermediateLabels = 60 - yLabels.length;
-
-    // Create an array with blank intermediate labels
-    const intermediateLabels = Array(numIntermediateLabels).fill('');
-
-    // Combine actual labels and intermediate labels
-    const allYLabels = [...yLabels, ...intermediateLabels];
 
     return (
         <View style={styles.grid}>
@@ -90,10 +88,18 @@ const PerformanceChart = () => {
                             }}
                             fromZero={true}
                             segments={60}
-                            yLabels={allYLabels}
-                            yLabelsOffset={-999}
+                            yLabelsOffset={-2000}
                         />
                     </View>
+                </View>
+                <View style={styles.yAxisLabelsCell}>
+                    <Text style={styles.yAxisLabels}>6000</Text>
+                    <Text style={styles.yAxisLabels}>5000</Text>
+                    <Text style={styles.yAxisLabels}>4000</Text>
+                    <Text style={styles.yAxisLabels}>3000</Text>
+                    <Text style={styles.yAxisLabels}>2000</Text>
+                    <Text style={styles.yAxisLabels}>1000</Text>
+                    <Text style={styles.yAxisLabels}>0</Text>
                 </View>
                 <View style={styles.cell1}>
                     <Text style={styles.labelTextR1} numberOfLines={1}>TAKEOFF DISTANCE OVER 50 FT. OBSTACLE - FEET</Text>
@@ -101,13 +107,13 @@ const PerformanceChart = () => {
             </View>
             <View style={styles.row}>
                 <View style={styles.cell}>
-                    <Text style={[styles.labelText, { marginLeft: 350 }]}>OUTSIDE AIR TEMPERATURE - °C</Text>
+                    <Text style={[styles.labelText, {marginRight: 400}]} numberOfLines={1}>OUTSIDE AIR TEMPERATURE - °C</Text>
                 </View>
                 <View style={styles.cell}>
-                    <Text style={[styles.labelText, { marginLeft: 100 }]}>WEIGHT - POUNDS</Text>
+                    <Text style={[styles.labelText, {marginRight: 280}]} numberOfLines={1}>WEIGHT - POUNDS</Text>
                 </View>
                 <View style={styles.cell}>
-                    <Text style={[styles.labelText, { marginRight: 350 }]}>WIND - KNOTS</Text>
+                    <Text style={styles.labelText} numberOfLines={1}>WIND - KNOTS</Text>
                 </View>
             </View>
         </View>
